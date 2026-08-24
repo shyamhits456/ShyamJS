@@ -1,0 +1,10 @@
+services:
+  shyamjs:
+    build: .
+    image: shyamjs:latest
+    # Reports are written into ./results on the host.
+    volumes:
+      - ./results:/data
+    # Override at runtime, e.g.:
+    #   docker compose run --rm shyamjs -u https://example.com -o /data
+    command: ["--help"]

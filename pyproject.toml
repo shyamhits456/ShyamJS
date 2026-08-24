@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shyamjs"
+version = "1.0.0"
+description = "JavaScript Security Analyzer - reconnaissance and static analysis for authorized web security testing."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Shyam" }]
+keywords = ["security", "recon", "javascript", "secrets", "osint", "pentest", "bug-bounty"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Topic :: Security",
+]
+dependencies = [
+    "httpx>=0.27",
+    "beautifulsoup4>=4.12",
+    "lxml>=5.0",
+    "rich>=13.0",
+    "tldextract>=5.0",
+    "jsbeautifier>=1.15",
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.23"]
+
+[project.urls]
+Homepage = "https://github.com/shyam/ShyamJS"
+Repository = "https://github.com/shyam/ShyamJS"
+Issues = "https://github.com/shyam/ShyamJS/issues"
+
+[project.scripts]
+shyamjs = "shyamjs.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["shyamjs*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
